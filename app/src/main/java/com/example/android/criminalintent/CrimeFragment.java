@@ -58,6 +58,13 @@ public class CrimeFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
+    //update the crime table when fragment is paused for whatever reason
+    @Override
+    public void onPause() {
+        super.onPause();
+        CrimeLab.get(getActivity()).updateCrime(mCrime);
+    }
+
     //define options menu
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
